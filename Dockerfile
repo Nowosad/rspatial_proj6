@@ -14,18 +14,27 @@ RUN apt-get update \
 	pandoc \
 	qpdf \
 	r-base-dev \
-  sqlite3 \
+        sqlite3 \
 	subversion \
 	valgrind \
 	vim \
-	wget
+	wget \
+	lbzip2 \
+	libfftw3-dev \
+	libgsl0-dev \
+	libgl1-mesa-dev \
+	libglu1-mesa-dev \
+	libhdf4-alt-dev \
+	libhdf5-dev \
+	netcdf-bin \
+	postgis \
+	tk-dev
 
 RUN apt-get install -y --no-install-recommends \
 	libv8-3.14-dev \
 	libjq-dev \
 	libprotobuf-dev \
 	libxml2-dev \
-	libprotobuf-dev \
 	protobuf-compiler \
 	unixodbc-dev \
 	libssh2-1-dev \
