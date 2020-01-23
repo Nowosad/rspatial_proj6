@@ -1,7 +1,12 @@
 # rspatial_proj6
 
+## To run:
 
-## READ MORE
+```
+docker run -d -p 8787:8787 -e PASSWORD=<password> jakubnowosad/rspatial_proj6 # replace <password> with a password of your choice
+```
+
+## Read more
 
 - https://rsbivand.github.io/geostat19_talk/geostat_bivand_19.html
 - https://gdal.org/development/rfc/rfc73_proj6_wkt2_srsbarn.html
