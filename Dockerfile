@@ -1,4 +1,4 @@
-FROM rocker/rstudio:3.6.1
+FROM rocker/rstudio:latest
 
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
@@ -31,7 +31,7 @@ RUN apt-get update \
 	tk-dev
 
 RUN apt-get install -y --no-install-recommends \
-	libv8-3.14-dev \
+	libnode-dev \
 	libjq-dev \
 	libprotobuf-dev \
 	libxml2-dev \
