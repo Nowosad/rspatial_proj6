@@ -14,7 +14,7 @@ RUN apt-get update \
 	pandoc \
 	qpdf \
 	r-base-dev \
-        sqlite3 \
+  sqlite3 \
 	subversion \
 	valgrind \
 	vim \
@@ -68,31 +68,9 @@ RUN cd /usr/local/share/proj \
   && rm proj-datumgrid*zip \
   && cd -
 
-# GDAL:
-
-ARG gdal_version=3.0.2
-ENV GDAL_VERSION=$gdal_version
-ENV GDAL_VERSION_NAME=$gdal_version
-
-RUN wget http://download.osgeo.org/gdal/${GDAL_VERSION}/gdal-${GDAL_VERSION_NAME}.tar.gz \
-  && tar -xf gdal-${GDAL_VERSION_NAME}.tar.gz \
-  && cd gdal* \
-  && ./configure \
-  && make -j2\
-  && make install \
-  && cd .. \
-  && ldconfig
-
-#RUN git clone --depth 1 https://github.com/OSGeo/gdal.git
-#RUN cd gdal/gdal \
-#  && ls -l \
-#  && ./configure \
-#  && make \
-#  && make install \
-#  && cd .. \
-#  && ldconfig
 
 # GEOS:
+
 ARG geos_version=3.8.0
 ENV GEOS_VERSION=$geos_version
 #
@@ -106,3 +84,26 @@ RUN wget http://download.osgeo.org/geos/geos-${GEOS_VERSION}.tar.bz2 \
   && cd .. \
   && ldconfig
 
+# GDAL:
+
+ARG gdal_version=3.0.2
+ENV GDAL_VERSION=$gdal_version
+ENV GDAL_VERSION_NAME=$gdal_version
+
+RUN wget http://download.osgeo.org/gdal/${GDAL_VERSION}/gdal-${GDAL_VERSION_NAME}.tar.gz \
+  && tar -xf gdal-${GDAL_VERSION_NAME}.tar.gz \
+  && cd gdal* \
+  && ./configure -with-geos=yes\
+  && make -j2\
+  && make install \
+  && cd .. \
+  && ldconfig
+
+#RUN git clone --depth 1 https://github.com/OSGeo/gdal.git
+#RUN cd gdal/gdal \
+#  && ls -l \
+#  && ./configure \
+#  && make \
+#  && make install \
+#  && cd .. \
+#  && ldconfig
