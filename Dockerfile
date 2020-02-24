@@ -45,7 +45,7 @@ RUN apt-get install -y --no-install-recommends \
 
 RUN locale-gen en_US.UTF-8
 
-ARG proj_version=6.2.1
+ARG proj_version=6.3.1
 ENV PROJ_VERSION=$proj_version
 # ENV LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 
@@ -86,7 +86,7 @@ RUN wget http://download.osgeo.org/geos/geos-${GEOS_VERSION}.tar.bz2 \
 
 # GDAL:
 
-ARG gdal_version=3.0.2
+ARG gdal_version=3.0.4
 ENV GDAL_VERSION=$gdal_version
 ENV GDAL_VERSION_NAME=$gdal_version
 
